@@ -3,9 +3,10 @@ import sequelize from "../config/database.js";
 
 const SubBreed = sequelize.define('SubBreed', {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
-    autoIncrement: true,
+  
   },
   name: {
     type: DataTypes.STRING,
@@ -15,7 +16,7 @@ const SubBreed = sequelize.define('SubBreed', {
     },
   },
   breedId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
     allowNull: false,
     references: {
       model: 'breeds',
@@ -24,7 +25,14 @@ const SubBreed = sequelize.define('SubBreed', {
   },
 }, {
   tableName: 'subbreeds',
+  underscored:true,
   timestamps: true,
+
+  indexes: [
+    {
+      fields: ["breed_id"],
+    },
+  ],
 });
 
 export default SubBreed;

@@ -4,9 +4,10 @@ import sequelize from "../config/database.js";
 
 const Breed = sequelize.define('Breed', {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
-    autoIncrement: true,
+    
   },
   name: {
     type: DataTypes.STRING,
@@ -18,7 +19,15 @@ const Breed = sequelize.define('Breed', {
   },
 }, {
   tableName: 'breeds',
+  underscored:true,
   timestamps: true,
+
+    indexes: [
+    {
+      unique: true,
+      fields: ["name"],
+    },
+  ],
 });
 
 export default Breed;
