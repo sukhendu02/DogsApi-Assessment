@@ -1,17 +1,24 @@
 import express from "express";
 import helmet from "helmet"
+
 import { errorHandler, notFoundHandler } from "./src/middleware/ErrorHandler.js";
+
+
 const app = express();
 
 import breedRoute from './src/modules/breed/route/breedRoute.js'
-
+import subBreedRoute from "./src/modules/subBreed/route/subBreedRoute.js"
 app.use(helmet());
 
 app.use(express.json());
 
 
+
 // BREED ROUTES
 app.use("/api/v1/breed", breedRoute)
+
+// SUB-BREED ROUTES
+app.use("/api/v1/subbreed", subBreedRoute)
 
 // ROOT ROUTE
 app.get('/',(req,res)=>{
