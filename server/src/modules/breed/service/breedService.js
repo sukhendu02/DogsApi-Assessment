@@ -1,11 +1,22 @@
+import { Op } from "sequelize"
 import { BadRequestError, ConflictError, NotFoundError } from "../../../middleware/ErrorHandler.js"
 import Breed from "../../../model/Breed.js"
 import SubBreed from "../../../model/subbreed.js"
 
 
 // GET ALL BREEDS
-export const getBreedService = async ()=>{
+export const getBreedService = async (search="")=>{
+
+    const where = {};
+
+    if (search.trim()) {
+        where.name = {
+            [Op.iLike]: `%${search.trim()}%`,
+        };
+    }
+    
     const data = await Breed.findAll({
+        where,
         include:SubBreed,
         order:[['created_at','DESC']]
     })
@@ -13,6 +24,7 @@ export const getBreedService = async ()=>{
     if(!data){
         throw NotFoundError("Breed ")
     }
+    
     return data;
 }
 // GET BREED BY ID 
@@ -79,7 +91,11 @@ export const updateBreedService = async (data,breedId)=>{
 
     // CHECK IF NAME BREED ALRADY PRESENT
     const validateName = await Breed.findOne({
-        where:{name:name.trim()}
+        where:{
+            name:{
+                 [Op.iLike]: name.trim(),
+            }
+        }
     })
    
 
@@ -87,6 +103,7 @@ export const updateBreedService = async (data,breedId)=>{
     if(validateName){
         throw ConflictError("Breed name")
     }
+    console.log("conflict",validateName)
     
 
     // NOT PRESENT - FIND THE BREED AND SAVE THE DETAILS

@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "seed":"node src/utils/seedData.js",
+    "seed": "node seedData.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -17,8 +17,10 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "helmet": "^8.2.0",
+    "js-yaml": "^5.2.1",
     "morgan": "^1.11.0",
     "pg": "^8.22.0",
-    "sequelize": "^6.37.8"
+    "sequelize": "^6.37.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }

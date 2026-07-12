@@ -1,5 +1,6 @@
 import express from "express";
 import helmet from "helmet"
+import cors from 'cors'
 
 import { errorHandler, notFoundHandler } from "./src/middleware/ErrorHandler.js";
 
@@ -8,11 +9,21 @@ const app = express();
 
 import breedRoute from './src/modules/breed/route/breedRoute.js'
 import subBreedRoute from "./src/modules/subBreed/route/subBreedRoute.js"
+
+
 app.use(helmet());
 
 app.use(express.json());
 
 
+
+// Enable CORS
+app.use(cors({
+    origin: ["http://localhost:5173", process.env.FRONTEND_URL], 
+    credentials: true,               
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }));
 
 // BREED ROUTES
 app.use("/api/v1/breed", breedRoute)

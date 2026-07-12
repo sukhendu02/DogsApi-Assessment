@@ -1,7 +1,8 @@
 import { getBreedService,createBreedService,deleteBreedService,updateBreedService,getBreedByIdService } from "../service/breedService.js"; 
 
 export const getBreeds = async(req,res)=>{
-    const breeds = await getBreedService();
+    
+    const breeds = await getBreedService(req.query.search);
     return res.status(200).json({
         success:true,
         breeds
