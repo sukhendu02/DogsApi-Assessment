@@ -16,6 +16,7 @@ import Modal from './Component/Modal';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
 import SearchBar from './Component/SearchBar';
+import { Megaphone } from 'lucide-react';
 
 function App() {
 
@@ -185,7 +186,11 @@ const [error, setError] = useState(null);
       </div>
       </header>
   
+
   <main className="max-w-2xl mx-auto px-4 py-6">
+    <p className='text-xs text-gray-500 font-semibold mb-2'>
+     <Megaphone className='inline'/> Click to view Sub-Breeds
+    </p>
         <BreedList
           breeds={breeds}
           query={query}
