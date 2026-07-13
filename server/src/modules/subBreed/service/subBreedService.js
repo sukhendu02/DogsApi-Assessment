@@ -1,6 +1,6 @@
 import { BadRequestError, NotFoundError } from "../../../middleware/ErrorHandler.js"
 import Breed from "../../../model/Breed.js";
-import SubBreed from "../../../model/subbreed.js";
+import SubBreed from "../../../model/Subbreed.js";
 
 // GET SUB-BREEDS USING BREEDS
 export const getSubBreedsByBreedService = async(breedId)=>{

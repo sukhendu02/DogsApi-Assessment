@@ -1,7 +1,7 @@
 import { Op } from "sequelize"
 import { BadRequestError, ConflictError, NotFoundError } from "../../../middleware/ErrorHandler.js"
 import Breed from "../../../model/Breed.js"
-import SubBreed from "../../../model/subbreed.js"
+import SubBreed from "../../../model/Subbreed.js"
 
 
 // GET ALL BREEDS
