@@ -10,9 +10,9 @@ The client's original dataset (`dogs.json`) is used as seed data, imported into 
 
 | | URL |
 |---|---|
-| **Live App** | `https://dogs-api-assessment.vercel.app/` |
-| **Live API** | `https://dogsapi-assessment.onrender.com` 
-| **GitHub Repo** | `https://github.com/sukhendu02/DogsApi-Assessment` |
+| **Live App** | https://dogs-api-assessment.vercel.app/ |
+| **Live API** | https://dogsapi-assessment.onrender.com
+| **GitHub Repo** | https://github.com/sukhendu02/DogsApi-Assessment |
 
 ---
 
