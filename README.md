@@ -32,6 +32,11 @@ The client's original dataset (`dogs.json`) is used as seed data, imported into 
 - Backend: Render
 - Frontend: Vercel
 
+
+
+
+> **Note:** The backend is deployed on Render's free tier. The first request after a period of inactivity may take **30–60 seconds** to respond while the server wakes up.
+
 ---
 
 ## Architecture
