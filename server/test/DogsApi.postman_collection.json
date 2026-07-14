@@ -1,0 +1,211 @@
+{
+  "info": {
+    "_postman_id": "47d2154f-1060-46ad-af06-e001ce64951a",
+    "name": "DogsApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14569790"
+  },
+  "item": [
+    {
+      "name": "Breed",
+      "item": [
+        {
+          "name": "Create Breed",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"test\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/breed",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "breed"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Breed by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"test\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/breed/5e1da78e-2ed1-4f30-bc42-5756bbd49831",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "breed",
+                "5e1da78e-2ed1-4f30-bc42-5756bbd49831"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all breeds",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Update Breed",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"test-5\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/breed/5571a2ef-0850-4bad-9fb2-377ee55b3bbe",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "breed",
+                "5571a2ef-0850-4bad-9fb2-377ee55b3bbe"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sub-Breed",
+      "item": [
+        {
+          "name": "add subbreed",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"test-subBreed new 2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/breed/5571a2ef-0850-4bad-9fb2-377ee55b3bbe/subbreeds",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "breed",
+                "5571a2ef-0850-4bad-9fb2-377ee55b3bbe",
+                "subbreeds"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get subbreed",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"update test breed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/subbreed/8c14985d-3b6e-49e4-8d2a-a40dafa2f9f9",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "subbreed",
+                "8c14985d-3b6e-49e4-8d2a-a40dafa2f9f9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get subbreeds by breed",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"update test breed\"\r\n}"
+            },
+            "url": {
+              "raw": "localhost:3000/api/v1/subbreed/8c14985d-3b6e-49e4-8d2a-a40dafa2f9f9",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "subbreed",
+                "8c14985d-3b6e-49e4-8d2a-a40dafa2f9f9"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

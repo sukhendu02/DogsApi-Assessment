@@ -1,4 +1,5 @@
-import { BadRequestError, NotFoundError } from "../../../middleware/ErrorHandler.js"
+import { Op } from "sequelize";
+import { BadRequestError, ConflictError, NotFoundError } from "../../../middleware/ErrorHandler.js"
 import Breed from "../../../model/Breed.js";
 import SubBreed from "../../../model/SubBreed.js";
 
@@ -19,6 +20,7 @@ export const getSubBreedsByBreedService = async(breedId)=>{
 
     return subBreeds;
 }
+
 // CREATE SUB-BREED USING BREED
 export const createSubBreedService = async(breedId,data)=>{
     if(!breedId){
@@ -35,6 +37,17 @@ export const createSubBreedService = async(breedId,data)=>{
         throw NotFoundError("Breed")
     }
 
+    const existing = await SubBreed.findOne({
+        where: {
+            breedId,
+            name: {
+            [Op.iLike]: name.trim(),
+            },
+        },
+    });
+    if(existing){
+        throw ConflictError("Sub-breed")
+    }
     const subBreed = await SubBreed.create({
         name:name.trim(),
         breedId:breed.id

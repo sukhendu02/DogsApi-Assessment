@@ -10,9 +10,9 @@ The client's original dataset (`dogs.json`) is used as seed data, imported into 
 
 | | URL |
 |---|---|
-| **Live App** | `<ADD_DEPLOYED_FRONTEND_URL_HERE>` |
-| **Live API** | `<ADD_DEPLOYED_BACKEND_URL_HERE>` 
-| **GitHub Repo** | `<ADD_REPO_URL_HERE>` |
+| **Live App** | `https://dogs-api-assessment.vercel.app/` |
+| **Live API** | `https://dogsapi-assessment.onrender.com` 
+| **GitHub Repo** | `https://github.com/sukhendu02/DogsApi-Assessment` |
 
 ---
 
@@ -79,6 +79,8 @@ dogs-api/
 |   │   │       ├── route
 |   │   │       └── service  
 │   │  
+│   ├── test/
+|   |   └── DogsApi.postman.json            # Postman test json
 │   ├── seed.js                # One-time script to load dogs.json into DB
 │   ├── dogs.json               # Original client dataset (seed source)
 │   ├── app.js                 # Express app + middleware + routes
@@ -96,6 +98,24 @@ dogs-api/
     ├── .env.example
     └── package.json
 ```
+
+
+### Features
+
+- CRUD for Breeds
+- CRUD for Sub-breeds
+- Search breeds
+- Persistent PostgreSQL storage
+- Responsive UI
+
+### Validation
+
+- Breed names cannot be empty.
+- Breed names are case-insensitively unique.
+- Sub-breed names cannot be empty.
+- Different Breed can have same name of the sub-breeds.
+- Every Breed will have unique name of sub-breeds.
+- Invalid requests return appropriate HTTP status codes.
 
 ---
 
@@ -115,6 +135,7 @@ dogs-api/
 | GET | `/subbreed/:id` | Get a single sub-breed |
 | PATCH | `/subbreed/:id` | Update a sub-breed — body: `{ "name": "string" }` |
 | DELETE | `/subbreed/:id` | Delete a sub-breed |
+| GET | `/breed?search="<Breed Name>` | Search a breed |
 
 <!-- Full interactive documentation (with a "Try it out" tester for every endpoint) is available at `/docs` once the server is running — see [Swagger Docs](#swagger-docs) below. -->
 
@@ -131,7 +152,7 @@ dogs-api/
 ### 1. Clone the repo
 
 ```bash
-git clone <ADD_REPO_URL_HERE>
+git clone https://github.com/sukhendu02/DogsApi-Assessment.git
 cd dogs-api
 ```
 
@@ -204,7 +225,7 @@ The app will be running at `http://localhost:5173` (Vite's default port).
 ### 5. Verify everything works
 
 - Open `http://localhost:5173` — you should see the list of dog breeds
-- Open `http://localhost:8000/docs` — you should see the interactive Swagger API documentation
+<!-- - Open `http://localhost:8000/docs` — you should see the interactive Swagger API documentation -->
 - Try creating, editing, and deleting a breed or sub-breed from the UI
 - **Persistence check:** create/delete something, stop the backend (`Ctrl+C`), restart it (`npm run dev`), refresh the frontend — your change should still be there
 
@@ -262,13 +283,13 @@ npm run seed
 - **Optimistic UI updates:** the frontend updates the UI immediately on create/update/delete actions, then rolls back if the API call fails — this keeps the interface feeling fast while still reflecting real server state accurately.
 - **Cascade deletes:** deleting a breed automatically deletes its associated sub-breeds at the database level (`ON DELETE CASCADE`), keeping the two tables consistent without extra application logic.
 
----
 
 
 
-## Reflection
 
-*(Add your own notes here before submission — e.g. what you'd do differently with more time, what you learned, any tradeoffs you're not fully happy with.)*
+<!-- ## Reflection
+
+*(Add your own notes here before submission — e.g. what you'd do differently with more time, what you learned, any tradeoffs you're not fully happy with.)* -->
 
 ---
 
